@@ -107,7 +107,11 @@ var keys = require("./keys.js");
       console.log('Title:', movie.Title);
       console.log('Year:', movie.Year);
       console.log('IMDB Rating:', movie.Ratings[0].Value);
-      console.log('Rotten Tomatoes Rating:', movie.Ratings[1].Value);
+      if (movie.Ratings[1] === undefined) {
+        console.log('Rotten Tomatoes Rating: N/A');
+      } else {
+        console.log('Rotten Tomatoes Rating:', movie.Ratings[1].Value);
+      }
       console.log('Country:', movie.Country);
       console.log('Language:', movie.Language);
       console.log('Plot:', movie.Plot);
