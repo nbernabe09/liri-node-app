@@ -51,7 +51,7 @@ var keys = require("./keys.js");
       if (!error) {
         for (var i = 0; i < 20; i++) {
           if (tweets[i] === undefined) {
-            return console.log("End of tweets")
+            return console.log("---End of tweets---");
           }
           console.log('----------');
           console.log("Tweet:", tweets[i].text);
@@ -76,6 +76,9 @@ var keys = require("./keys.js");
       var songInfo = data.tracks.items;
 
       for (var i = 0; i < 20; i++) {
+        if (songInfo[i] === undefined) {
+          return return console.log("---End of songs---");
+        }
         console.log('----------');
         console.log('Artist:', songInfo[i].artists[0].name);
         console.log('Song:', songInfo[i].name);
