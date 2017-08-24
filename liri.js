@@ -49,10 +49,7 @@ var keys = require("./keys.js");
     var params = {screen_name: 'hapa_tap'};
     client.get('statuses/user_timeline', params, function(error, tweets, response) {
       if (!error) {
-        for (var i = 0; i < 20; i++) {
-          if (tweets[i] === undefined) {
-            return console.log("---End of tweets---");
-          }
+        for (var i = 0; i < tweets.length; i++) {
           console.log('----------');
           console.log("Tweet:", tweets[i].text);
           console.log('Created:', tweets[i].created_at);
