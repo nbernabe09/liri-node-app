@@ -10,21 +10,15 @@ var keys = require("./keys.js");
 // Functions
 	function commandList() {
 		if (command === "my-tweets") {
-			// my-tweets
 			showTweets();
 			
 		} else if (command === "spotify-this-song") {
-			// spotify-this-song
 			showSong();
 			
 		} else if (command === "movie-this") {
-			// movie-this
 			showMovie();
 
 		} else {
-			console.log('----------');
-			console.log("That is not a command I am familiar with. Please use these commands:");
-
 			var fs = require("fs");
 
 			fs.readFile("commands.txt", "utf8", function(error, data) {
@@ -33,11 +27,12 @@ var keys = require("./keys.js");
 			  }
 			  var dataArr = data.split(",");
 
+				console.log('----------');
+				console.log("That is not a command I am familiar with. Please use these commands:");
 			  for (var i = 0; i < dataArr.length; i++) {
 			  	console.log("-", dataArr[i].trim());
 			  }
 			});
-
 		}
 	}
 
@@ -61,7 +56,6 @@ var keys = require("./keys.js");
 		  		console.log('----------');
 		  		console.log("Tweet:", tweets[i].text);
 		  		console.log('Created:', tweets[i].created_at);
-		  		console.log('----------');
 		  	}
 		  }
 		});
@@ -87,7 +81,6 @@ var keys = require("./keys.js");
 				console.log('Song:', songInfo[i].name);
 				console.log('Spotify link:', songInfo[i].href);
 				console.log('Album:', songInfo[i].album.name);
-				console.log('----------');
 			}
 		});
 	}
@@ -124,7 +117,6 @@ var keys = require("./keys.js");
 
 // If Statements
 	if (command === "do-what-it-says") {
-		// do-what-it-says
 		var fs = require("fs");
 
 		fs.readFile("random.txt", "utf8", function(error, data) {
