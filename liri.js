@@ -20,7 +20,6 @@ var keys = require("./keys.js");
 
     } else {
     	showCommands();
-
     }
   }
 
@@ -88,7 +87,6 @@ var keys = require("./keys.js");
       if (movie.Title === undefined) {
         return console.log("Sorry, I couldn't find that movie.");
       }
-
       console.log('----------');
       console.log('Title:', movie.Title);
       console.log('Year:', movie.Year);
@@ -136,7 +134,6 @@ var keys = require("./keys.js");
       searchTerm = dataArr[1].trim();
       commandList();
     });
-
   } else {
     commandList();
   }
