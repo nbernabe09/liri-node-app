@@ -19,20 +19,8 @@ var keys = require("./keys.js");
       showMovie();
 
     } else {
-      var fs = require("fs");
+    	showCommands();
 
-      fs.readFile("commands.txt", "utf8", function(error, data) {
-        if (error) {
-          return console.log(error);
-        }
-        var dataArr = data.split(",");
-
-        console.log('----------');
-        console.log("That is not a command I am familiar with. Please use these commands:");
-        for (var i = 0; i < dataArr.length; i++) {
-          console.log("-", dataArr[i].trim());
-        }
-      });
     }
   }
 
@@ -98,7 +86,7 @@ var keys = require("./keys.js");
       }
       var movie = JSON.parse(body);
       if (movie.Title === undefined) {
-        return console.log("Sorry, I couldn't find the movie.");
+        return console.log("Sorry, I couldn't find that movie.");
       }
 
       console.log('----------');
@@ -114,6 +102,23 @@ var keys = require("./keys.js");
       console.log('Language:', movie.Language);
       console.log('Plot:', movie.Plot);
       console.log('Actors:', movie.Actors);
+    });
+  }
+
+  function showCommands() {
+  	var fs = require("fs");
+
+    fs.readFile("commands.txt", "utf8", function(error, data) {
+      if (error) {
+        return console.log(error);
+      }
+      var dataArr = data.split(",");
+
+      console.log('----------');
+      console.log("That is not a command I am familiar with. Please use these commands:");
+      for (var i = 0; i < dataArr.length; i++) {
+        console.log("-", dataArr[i].trim());
+      }
     });
   }
 
