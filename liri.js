@@ -50,9 +50,10 @@ var keys = require("./keys.js");
     client.get('statuses/user_timeline', params, function(error, tweets, response) {
       if (!error) {
         for (var i = 0; i < tweets.length; i++) {
+          var created = tweets[i].created_at.split(" ");
           console.log('----------');
           console.log("Tweet:", tweets[i].text);
-          console.log('Created:', tweets[i].created_at);
+          console.log('Created:', created[0], created[1], created[2], created[5]);
         }
       }
     });
