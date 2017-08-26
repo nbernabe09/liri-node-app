@@ -24,6 +24,10 @@ var keys = require("./keys.js");
   }
 
   function showTweets() {
+    var name = 'hapa_tap';
+    if (searchTerm) {
+      name = searchTerm;
+    }
     var Twitter = require('twitter');
      
     var client = new Twitter({
@@ -33,10 +37,10 @@ var keys = require("./keys.js");
       access_token_secret: keys.twitterKeys.access_token_secret
     });
      
-    var params = {screen_name: 'hapa_tap'};
+    var params = {screen_name: name};
     client.get('statuses/user_timeline', params, function(error, tweets, response) {
       if (!error) {
-        for (var i = 0; i < tweets.length; i++) {
+        for (var i = tweets.length - 1; i >= 0; i--) {
           var created = tweets[i].created_at.split(" ");
           console.log('----------');
           console.log("Tweet:", tweets[i].text);
