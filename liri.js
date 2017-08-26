@@ -72,7 +72,7 @@ var keys = require("./keys.js");
         console.log('----------');
         console.log('Artist:', songInfo[i].artists[0].name);
         console.log('Song:', songInfo[i].name);
-        console.log('Spotify link:', songInfo[i].href);
+        console.log('Spotify link:', songInfo[i].preview_url);
         console.log('Album:', songInfo[i].album.name);
       }
     });
