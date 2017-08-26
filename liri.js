@@ -51,6 +51,10 @@ var keys = require("./keys.js");
   }
 
   function showSong() {
+    var song = 'The Sign';
+    if (searchTerm) {
+      song = searchTerm;
+    }
     var Spotify = require('node-spotify-api');
      
     var spotify = new Spotify({
@@ -58,7 +62,7 @@ var keys = require("./keys.js");
       secret: keys.spotifyKeys.secret
     });
 
-    spotify.search({ type: 'track', query: searchTerm }, function(err, data) {
+    spotify.search({ type: 'track', query: song }, function(err, data) {
       if (err) {
         return console.log('Error occurred: ' + err);
       }
